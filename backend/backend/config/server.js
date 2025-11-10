@@ -4,7 +4,8 @@ module.exports = ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
+  url: env('RENDER_EXTERNAL_URL', 'https://cms-practica-1.onrender.com'),
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
-});
+})
