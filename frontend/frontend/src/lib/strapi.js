@@ -1,5 +1,6 @@
-const STRAPI_HOST = process.env.STRAPI_HOST || 'http://localhost:1337'
-const STRAPI_TOKEN = process.env.STRAPI_TOKEN
+const STRAPI_HOST =
+  process.env.NEXT_PUBLIC_STRAPI_HOST || 'http://localhost:1337'
+const STRAPI_TOKEN = process.env.NEXT_PUBLIC_STRAPI_TOKEN
 
 export function query(url) {
   if (!STRAPI_HOST) {
