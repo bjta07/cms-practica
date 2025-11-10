@@ -1,13 +1,12 @@
 import { query } from './strapi'
 
-export function getArticles() {
-  return query('articles?populate=cover').then((res) => {
-    return res.data.map((article) => {
-      return {
-        id: article.id,
-        title: article.title,
-        description: article.description,
-      }
-    })
-  })
+export async function getArticles() {
+  const res = await query('articles?populate=cover')
+
+  return res.data.map((article) => ({
+    id: article.id,
+    title: article.attributes.title,
+    description: article.attributes.description,
+    cover: article.attributes.cover?.data?.attributes?.url || null,
+  }))
 }
